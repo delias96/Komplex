@@ -1,0 +1,2 @@
+# Komplex
+Komplex és szakdolgozat
