@@ -1,0 +1,11 @@
+.receiverCard{
+  width:49%;
+  float: left;
+}
+.packageCard{
+  width: 49%;
+  float: right;
+}
+h2{
+  text-align: center;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+        <style>
+          html {
+            font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 16px;
+          }
+        </style>
+  </head>
+  <body>
+    <h1>Label: {{ trackingNumber }}</h1>
+        <div style="display: flex; justify-content: space-between">
+          <div>
+              <p>Sender:</p>
+            {{#SenderDetails}}
+              {{ . }}<br />
+            {{/SenderDetails}}
+          </div>
+          <div>
+            <p>Receiver:</p>
+            {{#ReceiverDetails}}
+              {{ . }}<br />
+            {{/ReceiverDetails}}
+          </div>
+        </div>
+
+        <div style="margin-top: 7em">
+            <table style="width: 100%">
+             <tbody>
+               <tr style="font-weight: bold">
+                 <td style="width: 40%">Package Description</td>
+                 <td style="width: 20%; text-align: right">Weight</td>
+                 <td style="width: 10%; text-align: right">Qty</td>
+                 <td style="width: 20%; text-align: right">Measurement</td>
+               </tr>
+               {{#items}}
+               <tr>
+                 <td>{{ item }}</td>
+                 <td style="text-align: right">{{ weight }}</td>
+                 <td style="text-align: right">1</td>
+                 <td style="text-align: right">{{ measurement }}</td>
+               </tr>
+               {{/items}}
+             </tbody>
+            </table>
+        </div>
+  </body>
+</html>

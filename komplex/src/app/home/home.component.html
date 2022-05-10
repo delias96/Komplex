@@ -1,0 +1,86 @@
+<!-- Main Content -->
+<!-- Registration Form -->
+<form [formGroup]="newPackageForm" (ngSubmit)="addPackage()">
+  <mat-card>
+    <h2>New Package</h2>
+    <br>
+    <mat-divider></mat-divider>
+    <br>
+  <div class="receiverCard">
+      <!-- Name -->
+    <div class="mb-3">
+      <label class="inline-block mb-2">Receiver Name</label>
+      <app-input [control]="receiverName" placeholder="Enter Receiver Name"></app-input>
+    </div>
+  <!-- Email -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Receiver Email</label>
+    <app-input [control]="receiverEmail" type="email"
+    placeholder="Enter Receiver Email"></app-input>
+  </div>
+  <!-- Phone Number -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Receiver Phone Number</label>
+    <app-input [control]="receiverTelephone" format="(000)000-0000"
+    placeholder="Enter Receiver Phone Number"></app-input>
+  </div>
+  <!-- Postal Code -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Receiver Postal Code</label>
+    <app-input [control]="receiverPostalCode" type="text"
+    placeholder="Enter Receiver Postal Code"></app-input>
+  </div>
+  <!-- City -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Receiver City</label>
+      <app-input [control]="receiverCity" type="text"
+      placeholder="Enter Receiver City"></app-input>
+  </div>
+      <!-- Address -->
+      <div class="mb-3">
+        <label class="inline-block mb-2">Receiver Address</label>
+        <app-input [control]="receiverAddress" type="text"
+        placeholder="Enter Receiver Address"></app-input>
+      </div>
+  </div>
+  <div class="packageCard">
+    <div class="mb-3">
+      <label class="inline-block mb-2">Package Description</label>
+      <app-input [control]="packageDescription" type="text"
+      placeholder="Enter Package Description"></app-input>
+    </div>
+    <div class="mb-3">
+      <label class="inline-block mb-2">Package Weight</label>
+        <app-input [control]="packageWeight" type="number"
+          placeholder="Enter Package Weight"></app-input>
+    </div>
+    <div class="mb-3">
+      <label class="inline-block mb-2">Package Width</label>
+      <app-input [control]="packageWidth" type="number"
+      placeholder="Enter Package Width"></app-input>
+    </div>
+    <div class="mb-3">
+      <label class="inline-block mb-2">Package Length</label>
+      <app-input [control]="packageLength" type="number"
+      placeholder="Enter Package Length"></app-input>
+    </div>
+    <div class="mb-3">
+      <label class="inline-block mb-2">Package Height</label>
+      <app-input [control]="packageHeight" type="number"
+      placeholder="Enter Package Height"></app-input>
+    </div>
+  </div>
+
+    <button type="submit"
+    class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition
+    hover:bg-indigo-500 disabled:opacity-50 disabled:bg-indigo-400"
+    [disabled]="newPackageForm.invalid || !isLoggedIn">
+    Submit
+    </button>
+
+</mat-card>
+
+</form>
+
+
+

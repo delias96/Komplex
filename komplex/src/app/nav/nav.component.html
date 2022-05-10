@@ -1,0 +1,46 @@
+<!-- Header -->
+<header id="header" class="bg-secondary">
+  <nav class="container mx-auto flex justify-start items-center py-8 px-4">
+    <!-- App Name -->
+    <a class="text-3xl text-white-400 font-bold uppercase mr-4"
+      routerLink="/">Home</a>
+
+    <div class="flex flex-grow items-center">
+      <!-- Primary Navigation -->
+      <ul class="flex flex-row mt-1">
+        <!-- Navigation Links -->
+        <li>
+          <a class="px-2" href="#" *ngIf="!isLoggedIn"
+            (click)="openModal($event)">
+            Login / Register
+          </a>
+        </li>
+          <li *ngIf="showAdminBoard">
+            <a class="px-2" routerLink="/admin"
+              routerLinkActive="text-white-400"
+              [routerLinkActiveOptions]="{ exact: true }" >
+              Admin
+            </a>
+          </li>
+          <li *ngIf="showPackageBoard || showAdminBoard">
+            <a class="px-2" routerLink="/package"
+              routerLinkActive="text-white-400"
+              [routerLinkActiveOptions]="{ exact: true }">
+              Packages
+            </a>
+          </li>
+          <li *ngIf="isLoggedIn">
+            <a class="px-2" href="#" (click)="logout()">
+              Logout
+            </a>
+          </li>
+        <li routerLinkActive="text-white-400">
+          <a class="px-2" routerLink="/about"
+            routerLinkActive="text-indigo-400">
+            About
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

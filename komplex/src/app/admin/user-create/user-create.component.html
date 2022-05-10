@@ -1,0 +1,63 @@
+<!-- Registration Form -->
+<form [formGroup]="adminUserRegisterForm" (ngSubmit)="addUser()">
+  <!-- Name -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Name</label>
+    <app-input [control]="name" placeholder="Enter Name"></app-input>
+  </div>
+  <!-- Email -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Email</label>
+    <app-input [control]="email" type="email"
+      placeholder="Enter Email"></app-input>
+  </div>
+  <!-- Password -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Password</label>
+    <app-input [control]="password" type="password"
+    placeholder="Enter Password"></app-input>
+  </div>
+  <!-- Phone Number -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Phone Number</label>
+    <app-input [control]="telephone" format="(000)000-0000"
+    placeholder="Enter Phone Number"></app-input>
+  </div>
+  <!-- Postal Code -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Postal Code</label>
+    <app-input [control]="postalCode" type="text"
+      placeholder="Enter Postal Code"></app-input>
+  </div>
+    <!-- City -->
+    <div class="mb-3">
+      <label class="inline-block mb-2">City</label>
+      <app-input [control]="city" type="text"
+        placeholder="Enter City"></app-input>
+    </div>
+    <!-- Address -->
+    <div class="mb-3">
+      <label class="inline-block mb-2">Address</label>
+        <app-input [control]="address" type="text"
+          placeholder="Enter Address"></app-input>
+    </div>
+  <!-- Admin -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Role</label>
+    <select [formControl]="role" class="select-box">
+      <option value="admin">Admin</option>
+      <option value="user">User</option>
+    </select>
+  </div>
+  <button type="submit"
+    class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition
+      hover:bg-indigo-500 disabled:opacity-50 disabled:bg-indigo-400"
+    [disabled]="adminUserRegisterForm.invalid">
+    Submit
+  </button>
+  <br>
+  <button routerLink="/admin" class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition
+    hover:bg-indigo-500 disabled:opacity-50 disabled:bg-indigo-400">
+  Back
+</button>
+</form>

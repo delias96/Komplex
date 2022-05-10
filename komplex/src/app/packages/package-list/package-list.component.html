@@ -1,0 +1,54 @@
+<div>
+  <mat-card>
+    <button mat-raised-button color="primary" routerLink="/" >Create New Package</button>
+    <br>
+    <mat-divider></mat-divider>
+    <br>
+    <table mat-table [dataSource]="packages">
+      <ng-container matColumnDef="trackingNumber">
+        <th mat-header-cell *matHeaderCellDef>Tracking Number</th>
+        <td mat-cell *matCellDef="let element">{{element.trackingNumber}}</td>
+      </ng-container>
+      <ng-container matColumnDef="receiverName">
+        <th mat-header-cell *matHeaderCellDef>Receiver Name</th>
+        <td mat-cell *matCellDef="let element">{{element.receiverName}}</td>
+      </ng-container>
+      <ng-container matColumnDef="receiverPostalCode">
+        <th mat-header-cell *matHeaderCellDef>Receiver Postal Code</th>
+        <td mat-cell *matCellDef="let element">{{element.receiverPostalCode}}</td>
+      </ng-container>
+      <ng-container matColumnDef="receiverCity">
+        <th mat-header-cell *matHeaderCellDef>Receiver City</th>
+        <td mat-cell *matCellDef="let element">{{element.receiverCity}}</td>
+      </ng-container>
+      <ng-container matColumnDef="receiverAddress">
+        <th mat-header-cell *matHeaderCellDef>Receiver Address</th>
+        <td mat-cell *matCellDef="let element">{{element.receiverAddress}}</td>
+      </ng-container>
+      <ng-container matColumnDef="packageDescription">
+        <th mat-header-cell *matHeaderCellDef>Package</th>
+        <td mat-cell *matCellDef="let element">{{element.packageDescription}}</td>
+      </ng-container>
+      <ng-container matColumnDef="packageWeight">
+        <th mat-header-cell *matHeaderCellDef>Weight</th>
+        <td mat-cell *matCellDef="let element">{{element.packageWeight}}</td>
+      </ng-container>
+      <ng-container matColumnDef="meisurments">
+        <th mat-header-cell *matHeaderCellDef>Measurement</th>
+        <td mat-cell *matCellDef="let element">{{element.packageWidth}}x{{element.packageLength}}x{{element.packageHeight}}</td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button color="primary" (click)="print(element._id)">Print</button>
+          <br>
+          <button mat-button color="warn" (click)="stornoPackage(element._id)">Storno</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns:displayedColumns"></tr>
+
+    </table>
+  </mat-card>
+</div>
