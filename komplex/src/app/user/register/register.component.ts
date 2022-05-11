@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import { passwordValidator } from '../validators/register-validators';
+import { passwordValidator, RegisterValidators } from '../validators/register-validators';
 
 @Component({
   selector: 'app-register',
@@ -27,7 +27,8 @@ export class RegisterComponent {
     passwordValidator()
   ])
   confirm_password = new FormControl('', [
-    Validators.required
+    Validators.required,
+
   ])
   telephone = new FormControl('', [
     Validators.required,
@@ -62,7 +63,7 @@ export class RegisterComponent {
     postalCode:this.postalCode,
     city:this.city,
     address:this.address,
-  })
+  }, [RegisterValidators.match('password', 'confirm_password')])
 
   async register() {
     this.showAlert = true
@@ -70,7 +71,6 @@ export class RegisterComponent {
     this.alertColor = 'blue'
 
     try {
-      if(this.registerForm.get('password')?.value != this.registerForm.get('confirm_password'))
       this.authService.register(this.registerForm).subscribe((data) =>{
         console.log(data);
       })

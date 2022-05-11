@@ -27,7 +27,7 @@ export class AuthService {
       name: user.controls.name.value,
       email: user.controls.email.value,
       password: user.controls.password.value,
-      Telephone: user.controls.Telephone.value,
+      telephone: user.controls.telephone.value,
       postalCode:user.controls.postalCode.value,
       city:user.controls.city.value,
       address:user.controls.address.value,
