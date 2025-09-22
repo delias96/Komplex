@@ -24,6 +24,7 @@
     "@types/express": "^4.17.13",
     "@types/jsonwebtoken": "^8.5.8",
     "@types/mustache": "^4.1.2",
+    "dotenv": "^17.2.2",
     "ts-node-dev": "^1.1.8"
   }
 }

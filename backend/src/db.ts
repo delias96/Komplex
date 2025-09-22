@@ -2,11 +2,14 @@ import mongoose from "mongoose";
 import { packages } from "./entity/Package";
 import { User } from "./entity/User";
 import { labelrender } from "./label/generateLabel";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export function dbConnect() {
-  const mongoDB =
-    "mongodb+srv://test:test@node.ounhd.mongodb.net/Komplex?retryWrites=true&w=majority";
-  return mongoose.connect(mongoDB);
+  const dbUrl = process.env.DB_URL as string;
+  mongoose.set('strictQuery', true)
+  return mongoose.connect(dbUrl);
 }
 
 export const newUser = async (user: any) => {
